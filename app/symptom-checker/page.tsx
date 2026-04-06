@@ -120,7 +120,7 @@ export default function SymptomCheckerPage() {
     if (!text.trim()) return;
 
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       role: "user",
       content: text,
     };
@@ -133,7 +133,7 @@ export default function SymptomCheckerPage() {
 
     const analysis = getMockAnalysis(text);
     const aiMessage: Message = {
-      id: (Date.now() + 1).toString(),
+      id: crypto.randomUUID(),
       role: "assistant",
       content: `Based on your symptoms, I&apos;ve completed an initial assessment. Please review the analysis below.`,
       analysis,
